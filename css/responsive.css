@@ -1,0 +1,390 @@
+/* LUMIERE Hotel - Responsive Stylesheet */
+
+/* Extra Large Devices (1200px and up) */
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1140px;
+    }
+}
+
+/* Large Devices (992px to 1199px) */
+@media (max-width: 1199px) {
+    .hero-title {
+        font-size: 42px;
+    }
+    
+    .section-title {
+        font-size: 32px;
+    }
+    
+    .grid-4 {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Medium Devices (768px to 991px) */
+@media (max-width: 991px) {
+    .header {
+        padding: 10px 0;
+    }
+    
+    .navbar-brand {
+        font-size: 24px;
+    }
+    
+    .hero-title {
+        font-size: 36px;
+    }
+    
+    .hero-subtitle {
+        font-size: 20px;
+    }
+    
+    .booking-form-container {
+        padding: 20px;
+    }
+    
+    .section-title {
+        font-size: 28px;
+    }
+    
+    .grid-4,
+    .grid-3 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .auth-buttons {
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    .auth-buttons .btn {
+        width: 100%;
+    }
+    
+    .room-card {
+        min-width: 250px;
+    }
+    
+    .admin-sidebar {
+        min-height: auto;
+    }
+    
+    .admin-content {
+        padding: 20px;
+    }
+}
+
+/* Small Devices (576px to 767px) */
+@media (max-width: 767px) {
+    .hero-section {
+        height: auto;
+        padding: 100px 0 60px;
+    }
+    
+    .hero-title {
+        font-size: 28px;
+    }
+    
+    .hero-subtitle {
+        font-size: 16px;
+    }
+    
+    .booking-form-container {
+        padding: 15px;
+    }
+    
+    .booking-form .row {
+        flex-direction: column;
+    }
+    
+    .booking-form .col-md-3,
+    .booking-form .col-md-2 {
+        width: 100%;
+    }
+    
+    .section-title {
+        font-size: 24px;
+    }
+    
+    .section-subtitle {
+        font-size: 16px;
+    }
+    
+    .grid-4,
+    .grid-3,
+    .grid-2 {
+        grid-template-columns: 1fr;
+    }
+    
+    .room-card {
+        min-width: 100%;
+    }
+    
+    .slider-btn {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .feature-card {
+        padding: 20px;
+    }
+    
+    .feature-card i {
+        font-size: 36px;
+    }
+    
+    .footer {
+        padding: 30px 0 15px;
+    }
+    
+    .footer .row {
+        flex-direction: column;
+    }
+    
+    .footer .col-lg-4,
+    .footer .col-lg-2 {
+        margin-bottom: 30px;
+    }
+    
+    .form-container {
+        padding: 25px;
+    }
+    
+    .page-header h1 {
+        font-size: 32px;
+    }
+    
+    .table-custom {
+        font-size: 14px;
+    }
+    
+    .table-custom th,
+    .table-custom td {
+        padding: 10px;
+    }
+    
+    .admin-menu a {
+        padding: 10px 12px;
+        font-size: 14px;
+    }
+}
+
+/* Extra Small Devices (575px and below) */
+@media (max-width: 575px) {
+    .navbar-brand {
+        font-size: 20px;
+    }
+    
+    .nav-link {
+        font-size: 14px;
+        margin: 5px 0;
+    }
+    
+    .hero-title {
+        font-size: 24px;
+    }
+    
+    .hero-subtitle {
+        font-size: 14px;
+    }
+    
+    .booking-form .form-label {
+        font-size: 14px;
+    }
+    
+    .section-title {
+        font-size: 20px;
+    }
+    
+    .room-card-content h3 {
+        font-size: 18px;
+    }
+    
+    .room-card-content p {
+        font-size: 14px;
+    }
+    
+    .feature-card h3 {
+        font-size: 16px;
+    }
+    
+    .feature-card p {
+        font-size: 14px;
+    }
+    
+    .btn-gold,
+    .btn-outline-gold {
+        padding: 8px 15px;
+        font-size: 14px;
+    }
+    
+    .footer-title {
+        font-size: 20px;
+    }
+    
+    .footer-heading {
+        font-size: 16px;
+    }
+    
+    .footer-links a {
+        font-size: 14px;
+    }
+    
+    .social-links a {
+        width: 35px;
+        height: 35px;
+    }
+    
+    .page-header h1 {
+        font-size: 24px;
+    }
+    
+    .page-header p {
+        font-size: 14px;
+    }
+}
+
+/* Landscape Orientation */
+@media (max-height: 500px) and (orientation: landscape) {
+    .hero-section {
+        height: auto;
+        padding: 80px 0 40px;
+    }
+    
+    .hero-title {
+        font-size: 24px;
+    }
+    
+    .hero-subtitle {
+        font-size: 16px;
+    }
+    
+    .booking-form-container {
+        padding: 15px;
+    }
+}
+
+/* Print Styles */
+@media print {
+    .header,
+    .footer,
+    .slider-btn,
+    .scroll-top {
+        display: none;
+    }
+    
+    body {
+        background: white;
+        color: black;
+    }
+    
+    .card {
+        break-inside: avoid;
+    }
+}
+
+/* High Contrast Mode */
+@media (prefers-contrast: high) {
+    .btn-gold,
+    .btn-outline-gold {
+        border-width: 3px;
+    }
+    
+    .card {
+        border-width: 2px;
+    }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* Dark Mode Preference */
+@media (prefers-color-scheme: dark) {
+    body {
+        background: linear-gradient(135deg, var(--ebony) 0%, var(--deep-taupe) 100%);
+    }
+}
+
+/* Touch Devices */
+@media (hover: none) and (pointer: coarse) {
+    .room-card:hover,
+    .feature-card:hover,
+    .card:hover {
+        transform: none;
+    }
+    
+    .slider-btn {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .dropdown-menu {
+        min-width: 200px;
+    }
+}
+
+/* Tablet Devices */
+@media (min-width: 768px) and (max-width: 1024px) {
+    .hero-title {
+        font-size: 32px;
+    }
+    
+    .room-card {
+        min-width: 280px;
+    }
+    
+    .booking-form-container {
+        padding: 25px;
+    }
+}
+
+/* Large Mobile Devices */
+@media (min-width: 375px) and (max-width: 425px) {
+    .hero-title {
+        font-size: 26px;
+    }
+    
+    .booking-form .form-control,
+    .booking-form .form-select {
+        padding: 10px;
+    }
+}
+
+/* Small Mobile Devices */
+@media (max-width: 374px) {
+    .hero-title {
+        font-size: 20px;
+    }
+    
+    .navbar-brand {
+        font-size: 18px;
+    }
+    
+    .btn-gold,
+    .btn-outline-gold {
+        padding: 6px 12px;
+        font-size: 12px;
+    }
+}
+
+/* Ultra Wide Screens */
+@media (min-width: 2560px) {
+    .container {
+        max-width: 1400px;
+    }
+    
+    .hero-title {
+        font-size: 64px;
+    }
+    
+    .section-title {
+        font-size: 48px;
+    }
+}
