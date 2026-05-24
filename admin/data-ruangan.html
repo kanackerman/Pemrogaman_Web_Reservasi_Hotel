@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Ruangan - LUMIERE Admin</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+</head>
+<body>
+    <div class="d-flex">
+        <!-- Admin Sidebar -->
+        <div class="admin-sidebar" style="width: 250px;">
+            <div class="text-center mb-4">
+                <h4 style="color: var(--light-taupe-beige);">LUMIERE</h4>
+                <p style="color: var(--silver-grey); font-size: 14px;">Admin Panel</p>
+            </div>
+            <ul class="admin-menu">
+                <li><a href="dashboard.html"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+                <li><a href="data-kamar.html"><i class="fas fa-bed"></i> Data Kamar</a></li>
+                <li><a href="data-booking.html"><i class="fas fa-calendar-check"></i> Data Booking</a></li>
+                <li><a href="data-user.html"><i class="fas fa-users"></i> Data User</a></li>
+                <li><a href="data-pembayaran.html"><i class="fas fa-credit-card"></i> Data Pembayaran</a></li>
+                <li><a href="data-ruangan.html" class="active"><i class="fas fa-building"></i> Data Ruangan</a></li>
+                <li><a href="data-booking-event.html"><i class="fas fa-calendar-alt"></i> Data Booking Event</a></li>
+                <li><a href="laporan-reservasi.html"><i class="fas fa-chart-bar"></i> Laporan Reservasi</a></li>
+                <li><a href="laporan-pendapatan.html"><i class="fas fa-chart-line"></i> Laporan Pendapatan</a></li>
+                <li><a href="#" onclick="handleLogout()" style="color: #dc3545;"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+            </ul>
+        </div>
+
+        <!-- Admin Content -->
+        <div class="admin-content" style="flex: 1;">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h2 style="color: var(--light-taupe-beige);">Data Ruangan / Ballroom</h2>
+                <button class="btn btn-gold" data-bs-toggle="modal" data-bs-target="#addRoomModal">
+                    <i class="fas fa-plus me-2"></i>Tambah Ruangan
+                </button>
+            </div>
+
+            <!-- Room Table -->
+            <div class="card">
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-custom">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Nama Ruangan</th>
+                                    <th>Kapasitas</th>
+                                    <th>Harga Weekday</th>
+                                    <th>Harga Weekend</th>
+                                    <th>Status</th>
+                                    <th>Aksi</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td>LUMIERE GRAND BALLROOM</td>
+                                    <td>Theater: 1000, Round Table: 700</td>
+                                    <td>Rp25.000.000 - Rp40.000.000</td>
+                                    <td>Rp32.000.000 - Rp48.000.000</td>
+                                    <td><span class="badge badge-success">Available</span></td>
+                                    <td>
+                                        <button class="btn btn-sm btn-outline-gold me-1" onclick="editRoom(1)"><i class="fas fa-edit"></i></button>
+                                        <button class="btn btn-sm btn-outline-gold" style="border-color: #dc3545; color: #dc3545;" onclick="deleteRoom(1)"><i class="fas fa-trash"></i></button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>AURORA BALLROOM</td>
+                                    <td>Theater: 400, Round Table: 250</td>
+                                    <td>Rp15.000.000 - Rp24.000.000</td>
+                                    <td>Rp19.000.000 - Rp29.000.000</td>
+                                    <td><span class="badge badge-success">Available</span></td>
+                                    <td>
+                                        <button class="btn btn-sm btn-outline-gold me-1" onclick="editRoom(2)"><i class="fas fa-edit"></i></button>
+                                        <button class="btn btn-sm btn-outline-gold" style="border-color: #dc3545; color: #dc3545;" onclick="deleteRoom(2)"><i class="fas fa-trash"></i></button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>SERENITY BALLROOM</td>
+                                    <td>Theater: 150, Round Table: 100</td>
+                                    <td>Rp6.000.000 - Rp12.000.000</td>
+                                    <td>Rp8.000.000 - Rp15.000.000</td>
+                                    <td><span class="badge badge-success">Available</span></td>
+                                    <td>
+                                        <button class="btn btn-sm btn-outline-gold me-1" onclick="editRoom(3)"><i class="fas fa-edit"></i></button>
+                                        <button class="btn btn-sm btn-outline-gold" style="border-color: #dc3545; color: #dc3545;" onclick="deleteRoom(3)"><i class="fas fa-trash"></i></button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Room Modal -->
+    <div class="modal fade" id="addRoomModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Tambah Ruangan Baru</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="addRoomForm">
+                        <div class="mb-3">
+                            <label class="form-label">Nama Ruangan</label>
+                            <input type="text" class="form-control" id="roomName" required>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Kapasitas Theater</label>
+                                <input type="number" class="form-control" id="capacityTheater" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Kapasitas Round Table</label>
+                                <input type="number" class="form-control" id="capacityRoundTable" required>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Harga Weekday Non Catering</label>
+                                <input type="text" class="form-control" id="priceWeekdayNon" placeholder="Rp" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Harga Weekday Catering</label>
+                                <input type="text" class="form-control" id="priceWeekdayCatering" placeholder="Rp" required>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Harga Weekend Non Catering</label>
+                                <input type="text" class="form-control" id="priceWeekendNon" placeholder="Rp" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Harga Weekend Catering</label>
+                                <input type="text" class="form-control" id="priceWeekendCatering" placeholder="Rp" required>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Fasilitas</label>
+                            <textarea class="form-control" id="roomFacilities" rows="3" placeholder="Pisahkan dengan koma"></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Deskripsi</label>
+                            <textarea class="form-control" id="roomDescription" rows="3"></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Upload Foto</label>
+                            <div class="image-upload" onclick="document.getElementById('roomImage').click()">
+                                <i class="fas fa-cloud-upload-alt"></i>
+                                <p>Klik untuk upload foto ruangan</p>
+                                <input type="file" id="roomImage" accept="image/*" onchange="handleImageUpload(this, document.getElementById('imagePreview'))">
+                            </div>
+                            <img id="imagePreview" src="" alt="Preview" class="img-fluid rounded mt-3" style="max-height: 200px; display: none;">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-gold" data-bs-dismiss="modal">Batal</button>
+                    <button type="button" class="btn btn-gold" onclick="saveRoom()">Simpan</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/main.js"></script>
+    <script>
+        function editRoom(id) {
+            alert('Edit ruangan dengan ID: ' + id);
+        }
+        
+        function deleteRoom(id) {
+            if (confirm('Apakah Anda yakin ingin menghapus ruangan ini?')) {
+                alert('Ruangan dengan ID ' + id + ' telah dihapus');
+            }
+        }
+        
+        function saveRoom() {
+            alert('Data ruangan berhasil disimpan');
+        }
+    </script>
+</body>
+</html>
