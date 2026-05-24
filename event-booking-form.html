@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Booking Event - LUMIERE</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">
+                    <span class="logo-text">LUMIERE</span>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Beranda</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="rooms.html">Kamar</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="suites.html">Suite</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="restaurant.html">Restoran</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="ballroom.html">Ballroom</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="login.html">Login</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Event Booking Form Section -->
+    <section class="page-content" style="background: linear-gradient(135deg, var(--ebony) 0%, var(--deep-taupe) 100%);">
+        <div class="container">
+            <div class="page-header">
+                <h1>Form Booking Event</h1>
+                <p>Lengkapi formulir untuk booking ballroom/event space</p>
+            </div>
+            
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="card">
+                        <div class="card-body">
+                            <form id="eventBookingForm">
+                                <h5 class="card-title mb-4">Informasi Event</h5>
+                                
+                                <div class="row">
+                                    <div class="col-md-6 mb-4">
+                                        <label class="form-label">Pilih Ballroom</label>
+                                        <select class="form-select" id="ballroomType" required>
+                                            <option value="">Pilih Ballroom</option>
+                                            <option value="grand">LUMIERE GRAND BALLROOM</option>
+                                            <option value="aurora">AURORA BALLROOM</option>
+                                            <option value="serenity">SERENITY BALLROOM</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6 mb-4">
+                                        <label class="form-label">Jenis Acara</label>
+                                        <select class="form-select" id="eventType" required>
+                                            <option value="">Pilih Jenis Acara</option>
+                                            <option value="wedding">Wedding</option>
+                                            <option value="seminar">Seminar</option>
+                                            <option value="conference">Conference</option>
+                                            <option value="gathering">Gathering</option>
+                                            <option value="birthday">Birthday Party</option>
+                                            <option value="other">Lainnya</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                
+                                <div class="row">
+                                    <div class="col-md-6 mb-4">
+                                        <label class="form-label">Tanggal Event</label>
+                                        <input type="date" class="form-control" id="eventDate" required>
+                                    </div>
+                                    <div class="col-md-6 mb-4">
+                                        <label class="form-label">Waktu Mulai</label>
+                                        <input type="time" class="form-control" id="startTime" required>
+                                    </div>
+                                </div>
+                                
+                                <div class="row">
+                                    <div class="col-md-6 mb-4">
+                                        <label class="form-label">Waktu Selesai</label>
+                                        <input type="time" class="form-control" id="endTime" required>
+                                    </div>
+                                    <div class="col-md-6 mb-4">
+                                        <label class="form-label">Jumlah Peserta</label>
+                                        <input type="number" class="form-control" id="participants" placeholder="Estimasi jumlah peserta" required>
+                                    </div>
+                                </div>
+                                
+                                <div class="row">
+                                    <div class="col-md-6 mb-4">
+                                        <label class="form-label">Setup Acara</label>
+                                        <select class="form-select" id="setupType" required>
+                                            <option value="">Pilih Setup</option>
+                                            <option value="theater">Theater</option>
+                                            <option value="round-table">Round Table</option>
+                                            <option value="classroom">Classroom</option>
+                                            <option value="cocktail">Cocktail</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6 mb-4">
+                                        <label class="form-label">Paket Catering</label>
+                                        <select class="form-select" id="cateringPackage">
+                                            <option value="non-catering">Non Catering</option>
+                                            <option value="catering">Include Catering</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                
+                                <hr style="border-color: var(--deep-taupe); margin: 30px 0;">
+                                
+                                <h5 class="card-title mb-4">Informasi Pemesan</h5>
+                                
+                                <div class="row">
+                                    <div class="col-md-6 mb-4">
+                                        <label class="form-label">Nama Lengkap</label>
+                                        <input type="text" class="form-control" id="organizerName" placeholder="Masukkan nama lengkap" required>
+                                    </div>
+                                    <div class="col-md-6 mb-4">
+                                        <label class="form-label">Nama Perusahaan/Organisasi</label>
+                                        <input type="text" class="form-control" id="organization" placeholder="Opsional">
+                                    </div>
+                                </div>
+                                
+                                <div class="row">
+                                    <div class="col-md-6 mb-4">
+                                        <label class="form-label">Email</label>
+                                        <input type="email" class="form-control" id="organizerEmail" placeholder="Masukkan email" required>
+                                    </div>
+                                    <div class="col-md-6 mb-4">
+                                        <label class="form-label">Nomor Telepon</label>
+                                        <input type="tel" class="form-control" id="organizerPhone" placeholder="Masukkan nomor telepon" required>
+                                    </div>
+                                </div>
+                                
+                                <div class="mb-4">
+                                    <label class="form-label">Alamat</label>
+                                    <textarea class="form-control" id="address" rows="2" placeholder="Masukkan alamat lengkap"></textarea>
+                                </div>
+                                
+                                <div class="mb-4">
+                                    <label class="form-label">Kebutuhan Khusus</label>
+                                    <textarea class="form-control" id="specialRequests" rows="3" placeholder="Jelaskan kebutuhan khusus untuk acara Anda"></textarea>
+                                </div>
+                                
+                                <div class="d-flex gap-3">
+                                    <button type="submit" class="btn btn-gold flex-grow-1">Lanjut ke Pembayaran</button>
+                                    <a href="ballroom.html" class="btn btn-outline-gold">Batal</a>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4">
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <h5 class="card-title mb-3">Ringkasan Booking</h5>
+                            <div class="mb-3">
+                                <p class="card-text mb-1"><strong>Ballroom:</strong> <span id="summaryBallroom">-</span></p>
+                                <p class="card-text mb-1"><strong>Tanggal:</strong> <span id="summaryDate">-</span></p>
+                                <p class="card-text mb-1"><strong>Waktu:</strong> <span id="summaryTime">-</span></p>
+                                <p class="card-text mb-1"><strong>Peserta:</strong> <span id="summaryParticipants">-</span></p>
+                                <p class="card-text mb-1"><strong>Setup:</strong> <span id="summarySetup">-</span></p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title mb-3">Estimasi Harga</h5>
+                            <div class="mb-3">
+                                <p class="card-text mb-1"><strong>Harga Sewa:</strong> <span id="rentalPrice">Rp0</span></p>
+                                <p class="card-text mb-1"><strong>Catering:</strong> <span id="cateringPrice">Rp0</span></p>
+                            </div>
+                            <hr style="border-color: var(--deep-taupe); margin: 10px 0;">
+                            <div class="d-flex justify-content-between">
+                                <strong style="color: var(--light-taupe-beige);">Total Estimasi</strong>
+                                <strong class="price-display" id="totalEstimate">Rp0</strong>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+        <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <h4 class="footer-title">LUMIERE</h4>
+                    <p class="footer-text">Hotel & Resor Mewah</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2">
+                    <h5 class="footer-heading">Tautan Cepat</h5>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Beranda</a></li>
+                        <li><a href="rooms.html">Kamar</a></li>
+                        <li><a href="suites.html">Suite</a></li>
+                        <li><a href="restaurant.html">Restoran</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2">
+                    <h5 class="footer-heading">Halaman</h5>
+                    <ul class="footer-links">
+                        <li><a href="about.html">Tentang Kami</a></li>
+                        <li><a href="contact.html">Kontak</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="terms.html">Syarat & Ketentuan</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2">
+                    <h5 class="footer-heading">Akun</h5>
+                    <ul class="footer-links">
+                        <li><a href="login.html">Login</a></li>
+                        <li><a href="register.html">Daftar</a></li>
+                        <li><a href="privacy.html">Privasi</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2">
+                    <h5 class="footer-heading">Kontak</h5>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-phone"></i> +62 21 1234 5678</li>
+                        <li><i class="fas fa-envelope"></i> info@lumiere.com</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Jakarta, Indonesia</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 LUMIERE. Hak Cipta Dilindungi.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

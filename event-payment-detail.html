@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detail Pembayaran Event - LUMIERE</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">
+                    <span class="logo-text">LUMIERE</span>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Beranda</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="rooms.html">Kamar</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="suites.html">Suite</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="ballroom.html">Ballroom</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="login.html">Login</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Event Payment Detail Section -->
+    <section class="page-content" style="background: linear-gradient(135deg, var(--ebony) 0%, var(--deep-taupe) 100%);">
+        <div class="container">
+            <div class="page-header">
+                <h1>Detail Pembayaran Event</h1>
+                <p>Lengkapi pembayaran untuk mengkonfirmasi booking event</p>
+            </div>
+            
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <h5 class="card-title mb-4">Pilih Metode Pembayaran</h5>
+                            
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <div class="card payment-method-card" onclick="selectPayment('bank')" style="cursor: pointer; border: 2px solid var(--deep-taupe);">
+                                        <div class="card-body text-center">
+                                            <i class="fas fa-university mb-3" style="font-size: 36px; color: var(--light-taupe-beige);"></i>
+                                            <h6 style="color: var(--white);">Transfer Bank</h6>
+                                            <p style="color: var(--silver-grey); font-size: 14px;">BCA, Mandiri, BNI, BRI</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="card payment-method-card" onclick="selectPayment('card')" style="cursor: pointer; border: 2px solid var(--deep-taupe);">
+                                        <div class="card-body text-center">
+                                            <i class="fas fa-credit-card mb-3" style="font-size: 36px; color: var(--light-taupe-beige);"></i>
+                                            <h6 style="color: var(--white);">Kartu Kredit/Debit</h6>
+                                            <p style="color: var(--silver-grey); font-size: 14px;">Visa, Mastercard, JCB</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="card payment-method-card" onclick="selectPayment('ewallet')" style="cursor: pointer; border: 2px solid var(--deep-taupe);">
+                                        <div class="card-body text-center">
+                                            <i class="fas fa-wallet mb-3" style="font-size: 36px; color: var(--light-taupe-beige);"></i>
+                                            <h6 style="color: var(--white);">E-Wallet</h6>
+                                            <p style="color: var(--silver-grey); font-size: 14px;">GoPay, OVO, Dana, ShopeePay</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="card payment-method-card" onclick="selectPayment('qris')" style="cursor: pointer; border: 2px solid var(--deep-taupe);">
+                                        <div class="card-body text-center">
+                                            <i class="fas fa-qrcode mb-3" style="font-size: 36px; color: var(--light-taupe-beige);"></i>
+                                            <h6 style="color: var(--white);">QRIS</h6>
+                                            <p style="color: var(--silver-grey); font-size: 14px;">Scan QR untuk bayar</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card" id="bankTransferDetails" style="display: none;">
+                        <div class="card-body">
+                            <h5 class="card-title mb-4">Detail Transfer Bank</h5>
+                            <div class="alert alert-info" style="background: rgba(23, 162, 184, 0.1); border: 1px solid #17a2b8; color: #17a2b8;">
+                                <i class="fas fa-info-circle me-2"></i>
+                                Silakan transfer ke salah satu rekening berikut:
+                            </div>
+                            
+                            <div class="mb-4">
+                                <h6 style="color: var(--light-taupe-beige);">BCA</h6>
+                                <p style="color: var(--silver-grey);">No. Rekening: 123-456-7890</p>
+                                <p style="color: var(--silver-grey);">Atas Nama: PT LUMIERE HOTEL</p>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <h6 style="color: var(--light-taupe-beige);">Mandiri</h6>
+                                <p style="color: var(--silver-grey);">No. Rekening: 000-111-222-333</p>
+                                <p style="color: var(--silver-grey);">Atas Nama: PT LUMIERE HOTEL</p>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <h6 style="color: var(--light-taupe-beige);">BNI</h6>
+                                <p style="color: var(--silver-grey);">No. Rekening: 444-555-666-777</p>
+                                <p style="color: var(--silver-grey);">Atas Nama: PT LUMIERE HOTEL</p>
+                            </div>
+                            
+                            <hr style="border-color: var(--deep-taupe); margin: 20px 0;">
+                            
+                            <div class="mb-4">
+                                <label class="form-label">Upload Bukti Transfer</label>
+                                <div class="image-upload" onclick="document.getElementById('paymentProof').click()">
+                                    <i class="fas fa-cloud-upload-alt"></i>
+                                    <p>Klik untuk upload bukti transfer</p>
+                                    <input type="file" id="paymentProof" accept="image/*" onchange="handleImageUpload(this, document.getElementById('proofPreview'))">
+                                </div>
+                                <img id="proofPreview" src="" alt="Bukti Transfer" class="img-fluid rounded mt-3" style="max-height: 200px; display: none;">
+                            </div>
+                            
+                            <div class="d-grid gap-2">
+                                <a href="upload-event-proof.html" class="btn btn-gold">Upload Bukti Bayar</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4">
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <h5 class="card-title mb-3">Ringkasan Pembayaran</h5>
+                            <div class="mb-3">
+                                <p class="card-text mb-1"><strong>ID Booking:</strong> #EV20240524001</p>
+                                <p class="card-text mb-1"><strong>Ballroom:</strong> LUMIERE GRAND BALLROOM</p>
+                                <p class="card-text mb-1"><strong>Tanggal:</strong> 25 Mei 2024</p>
+                                <p class="card-text mb-1"><strong>Durasi:</strong> 8 Jam</p>
+                                <p class="card-text mb-1"><strong>Peserta:</strong> 500 Orang</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title mb-3">Estimasi Harga</h5>
+                            <div class="mb-3">
+                                <p class="card-text mb-1"><strong>Subtotal</strong></p>
+                                <p style="color: var(--silver-grey);">Rp48.000.000</p>
+                                <p class="card-text mb-1"><strong>Pajak & Service</strong></p>
+                                <p style="color: var(--silver-grey);">Rp4.800.000</p>
+                            </div>
+                            <hr style="border-color: var(--deep-taupe); margin: 10px 0;">
+                            <div class="d-flex justify-content-between">
+                                <strong style="color: var(--light-taupe-beige);">Total</strong>
+                                <strong class="price-display">Rp52.800.000</strong>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+        <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <h4 class="footer-title">LUMIERE</h4>
+                    <p class="footer-text">Hotel & Resor Mewah</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2">
+                    <h5 class="footer-heading">Tautan Cepat</h5>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Beranda</a></li>
+                        <li><a href="rooms.html">Kamar</a></li>
+                        <li><a href="suites.html">Suite</a></li>
+                        <li><a href="restaurant.html">Restoran</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2">
+                    <h5 class="footer-heading">Halaman</h5>
+                    <ul class="footer-links">
+                        <li><a href="about.html">Tentang Kami</a></li>
+                        <li><a href="contact.html">Kontak</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="terms.html">Syarat & Ketentuan</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2">
+                    <h5 class="footer-heading">Akun</h5>
+                    <ul class="footer-links">
+                        <li><a href="login.html">Login</a></li>
+                        <li><a href="register.html">Daftar</a></li>
+                        <li><a href="privacy.html">Privasi</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2">
+                    <h5 class="footer-heading">Kontak</h5>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-phone"></i> +62 21 1234 5678</li>
+                        <li><i class="fas fa-envelope"></i> info@lumiere.com</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Jakarta, Indonesia</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 LUMIERE. Hak Cipta Dilindungi.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        function selectPayment(method) {
+            document.querySelectorAll('.payment-method-card').forEach(card => {
+                card.style.borderColor = 'var(--deep-taupe)';
+            });
+            event.currentTarget.closest('.payment-method-card').style.borderColor = 'var(--light-taupe-beige)';
+            
+            if (method === 'bank') {
+                document.getElementById('bankTransferDetails').style.display = 'block';
+            } else {
+                document.getElementById('bankTransferDetails').style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>

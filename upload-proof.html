@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Bukti Bayar - LUMIERE</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">
+                    <span class="logo-text">LUMIERE</span>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Beranda</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="rooms.html">Kamar</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="suites.html">Suite</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="login.html">Login</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Upload Proof Section -->
+    <section class="page-content" style="background: linear-gradient(135deg, var(--ebony) 0%, var(--deep-taupe) 100%);">
+        <div class="container">
+            <div class="page-header">
+                <h1>Upload Bukti Bayar</h1>
+                <p>Upload bukti transfer untuk verifikasi pembayaran</p>
+            </div>
+            
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="mb-4">
+                                <h5 class="card-title mb-3">Informasi Booking</h5>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <p class="card-text mb-2"><strong>ID Booking:</strong> #BK20240524001</p>
+                                        <p class="card-text mb-2"><strong>Tipe Kamar:</strong> Deluxe Room</p>
+                                        <p class="card-text mb-2"><strong>Total:</strong> Rp1.870.000</p>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p class="card-text mb-2"><strong>Check In:</strong> 25 Mei 2024</p>
+                                        <p class="card-text mb-2"><strong>Check Out:</strong> 27 Mei 2024</p>
+                                        <p class="card-text mb-2"><strong>Status:</strong> <span class="badge badge-warning">Pending Payment</span></p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <hr style="border-color: var(--deep-taupe); margin: 20px 0;">
+                            
+                            <div class="mb-4">
+                                <h5 class="card-title mb-3">Upload Bukti Transfer</h5>
+                                <div class="image-upload" onclick="document.getElementById('paymentProof').click()">
+                                    <i class="fas fa-cloud-upload-alt"></i>
+                                    <p>Klik untuk upload bukti transfer</p>
+                                    <p style="font-size: 14px; color: var(--silver-grey);">Format: JPG, PNG, PDF (Max 5MB)</p>
+                                    <input type="file" id="paymentProof" accept="image/*,.pdf" onchange="handleImageUpload(this, document.getElementById('proofPreview'))">
+                                </div>
+                                <img id="proofPreview" src="" alt="Bukti Transfer" class="img-fluid rounded mt-3" style="max-height: 300px; display: none;">
+                            </div>
+                            
+                            <div class="mb-4">
+                                <label class="form-label">Catatan (Opsional)</label>
+                                <textarea class="form-control" id="paymentNotes" rows="3" placeholder="Tambahkan catatan jika diperlukan"></textarea>
+                            </div>
+                            
+                            <div class="alert alert-info" style="background: rgba(23, 162, 184, 0.1); border: 1px solid #17a2b8; color: #17a2b8;">
+                                <i class="fas fa-info-circle me-2"></i>
+                                Verifikasi pembayaran akan dilakukan dalam 1-2 jam kerja. Anda akan menerima notifikasi setelah pembayaran diverifikasi.
+                            </div>
+                            
+                            <div class="d-flex gap-3">
+                                <button type="button" class="btn btn-gold flex-grow-1" onclick="submitProof()">Upload Bukti</button>
+                                <a href="payment-detail.html" class="btn btn-outline-gold">Kembali</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+        <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <h4 class="footer-title">LUMIERE</h4>
+                    <p class="footer-text">Hotel & Resor Mewah</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2">
+                    <h5 class="footer-heading">Tautan Cepat</h5>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Beranda</a></li>
+                        <li><a href="rooms.html">Kamar</a></li>
+                        <li><a href="suites.html">Suite</a></li>
+                        <li><a href="restaurant.html">Restoran</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2">
+                    <h5 class="footer-heading">Halaman</h5>
+                    <ul class="footer-links">
+                        <li><a href="about.html">Tentang Kami</a></li>
+                        <li><a href="contact.html">Kontak</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="terms.html">Syarat & Ketentuan</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2">
+                    <h5 class="footer-heading">Akun</h5>
+                    <ul class="footer-links">
+                        <li><a href="login.html">Login</a></li>
+                        <li><a href="register.html">Daftar</a></li>
+                        <li><a href="privacy.html">Privasi</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2">
+                    <h5 class="footer-heading">Kontak</h5>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-phone"></i> +62 21 1234 5678</li>
+                        <li><i class="fas fa-envelope"></i> info@lumiere.com</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Jakarta, Indonesia</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 LUMIERE. Hak Cipta Dilindungi.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        function submitProof() {
+            const file = document.getElementById('paymentProof').files[0];
+            if (file) {
+                alert('Bukti transfer berhasil diupload. Silakan tunggu verifikasi.');
+                window.location.href = 'payment-status.html';
+            } else {
+                alert('Silakan upload bukti transfer terlebih dahulu.');
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Booking - LUMIERE</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">
+                    <span class="logo-text">LUMIERE</span>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Beranda</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="rooms.html">Kamar</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="suites.html">Suite</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="login.html">Login</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Booking Form Section -->
+    <section class="page-content" style="background: linear-gradient(135deg, var(--ebony) 0%, var(--deep-taupe) 100%);">
+        <div class="container">
+            <div class="page-header">
+                <h1>Form Booking</h1>
+                <p>Lengkapi formulir untuk melakukan reservasi</p>
+            </div>
+            
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="card">
+                        <div class="card-body">
+                            <form id="bookingForm">
+                                <h5 class="card-title mb-4">Informasi Booking</h5>
+                                
+                                <div class="row">
+                                    <div class="col-md-6 mb-4">
+                                        <label class="form-label">Tipe Kamar</label>
+                                        <select class="form-select" id="roomType" required>
+                                            <option value="">Pilih Tipe Kamar</option>
+                                            <option value="deluxe">Deluxe Room</option>
+                                            <option value="business">Business Suite</option>
+                                            <option value="grand-deluxe">Grand Deluxe Room</option>
+                                            <option value="family">Family Suite</option>
+                                            <option value="executive">Executive Suite</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6 mb-4">
+                                        <label class="form-label">Jumlah Kamar</label>
+                                        <select class="form-select" id="roomCount" required>
+                                            <option value="1">1 Kamar</option>
+                                            <option value="2">2 Kamar</option>
+                                            <option value="3">3 Kamar</option>
+                                            <option value="4">4+ Kamar</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                
+                                <div class="row">
+                                    <div class="col-md-6 mb-4">
+                                        <label class="form-label">Check In</label>
+                                        <input type="date" class="form-control" id="checkIn" required>
+                                    </div>
+                                    <div class="col-md-6 mb-4">
+                                        <label class="form-label">Check Out</label>
+                                        <input type="date" class="form-control" id="checkOut" required>
+                                    </div>
+                                </div>
+                                
+                                <div class="row">
+                                    <div class="col-md-6 mb-4">
+                                        <label class="form-label">Jumlah Tamu</label>
+                                        <select class="form-select" id="guestCount" required>
+                                            <option value="1">1 Orang</option>
+                                            <option value="2" selected>2 Orang</option>
+                                            <option value="3">3 Orang</option>
+                                            <option value="4">4 Orang</option>
+                                            <option value="5">5+ Orang</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6 mb-4">
+                                        <label class="form-label">Paket Breakfast</label>
+                                        <select class="form-select" id="breakfast">
+                                            <option value="no">Non Breakfast</option>
+                                            <option value="yes">Include Breakfast</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                
+                                <hr style="border-color: var(--deep-taupe); margin: 30px 0;">
+                                
+                                <h5 class="card-title mb-4">Informasi Tamu</h5>
+                                
+                                <div class="row">
+                                    <div class="col-md-6 mb-4">
+                                        <label class="form-label">Nama Lengkap</label>
+                                        <input type="text" class="form-control" id="guestName" placeholder="Masukkan nama lengkap" required>
+                                    </div>
+                                    <div class="col-md-6 mb-4">
+                                        <label class="form-label">Email</label>
+                                        <input type="email" class="form-control" id="guestEmail" placeholder="Masukkan email" required>
+                                    </div>
+                                </div>
+                                
+                                <div class="row">
+                                    <div class="col-md-6 mb-4">
+                                        <label class="form-label">Nomor Telepon</label>
+                                        <input type="tel" class="form-control" id="guestPhone" placeholder="Masukkan nomor telepon" required>
+                                    </div>
+                                    <div class="col-md-6 mb-4">
+                                        <label class="form-label">Kebutuhan Khusus</label>
+                                        <input type="text" class="form-control" id="specialRequests" placeholder="Opsional">
+                                    </div>
+                                </div>
+                                
+                                <div class="mb-4">
+                                    <label class="form-label">Catatan Tambahan</label>
+                                    <textarea class="form-control" id="additionalNotes" rows="3" placeholder="Tambahkan catatan jika diperlukan"></textarea>
+                                </div>
+                                
+                                <div class="d-flex gap-3">
+                                    <button type="submit" class="btn btn-gold flex-grow-1">Lanjut ke Pembayaran</button>
+                                    <a href="rooms.html" class="btn btn-outline-gold">Batal</a>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4">
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <h5 class="card-title mb-3">Ringkasan Booking</h5>
+                            <div class="mb-3">
+                                <p class="card-text mb-1"><strong>Tipe Kamar:</strong> <span id="summaryRoom">-</span></p>
+                                <p class="card-text mb-1"><strong>Check In:</strong> <span id="summaryCheckIn">-</span></p>
+                                <p class="card-text mb-1"><strong>Check Out:</strong> <span id="summaryCheckOut">-</span></p>
+                                <p class="card-text mb-1"><strong>Durasi:</strong> <span id="summaryDuration">-</span> malam</p>
+                                <p class="card-text mb-1"><strong>Jumlah Kamar:</strong> <span id="summaryRoomCount">-</span></p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title mb-3">Estimasi Harga</h5>
+                            <div class="mb-3">
+                                <p class="card-text mb-1"><strong>Harga per malam:</strong> <span id="pricePerNight">Rp0</span></p>
+                                <p class="card-text mb-1"><strong>Total:</strong> <span id="totalPrice" class="price-display">Rp0</span></p>
+                            </div>
+                            <div class="alert alert-info" style="background: rgba(23, 162, 184, 0.1); border: 1px solid #17a2b8; color: #17a2b8;">
+                                <i class="fas fa-info-circle me-2"></i>
+                                Harga final akan dihitung setelah konfirmasi booking.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+        <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <h4 class="footer-title">LUMIERE</h4>
+                    <p class="footer-text">Hotel & Resor Mewah</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2">
+                    <h5 class="footer-heading">Tautan Cepat</h5>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Beranda</a></li>
+                        <li><a href="rooms.html">Kamar</a></li>
+                        <li><a href="suites.html">Suite</a></li>
+                        <li><a href="restaurant.html">Restoran</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2">
+                    <h5 class="footer-heading">Halaman</h5>
+                    <ul class="footer-links">
+                        <li><a href="about.html">Tentang Kami</a></li>
+                        <li><a href="contact.html">Kontak</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="terms.html">Syarat & Ketentuan</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2">
+                    <h5 class="footer-heading">Akun</h5>
+                    <ul class="footer-links">
+                        <li><a href="login.html">Login</a></li>
+                        <li><a href="register.html">Daftar</a></li>
+                        <li><a href="privacy.html">Privasi</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2">
+                    <h5 class="footer-heading">Kontak</h5>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-phone"></i> +62 21 1234 5678</li>
+                        <li><i class="fas fa-envelope"></i> info@lumiere.com</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Jakarta, Indonesia</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 LUMIERE. Hak Cipta Dilindungi.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        // Update booking summary dynamically
+        document.getElementById('roomType').addEventListener('change', updateSummary);
+        document.getElementById('checkIn').addEventListener('change', updateSummary);
+        document.getElementById('checkOut').addEventListener('change', updateSummary);
+        document.getElementById('roomCount').addEventListener('change', updateSummary);
+        
+        function updateSummary() {
+            const roomType = document.getElementById('roomType').value;
+            const checkIn = document.getElementById('checkIn').value;
+            const checkOut = document.getElementById('checkOut').value;
+            const roomCount = document.getElementById('roomCount').value;
+            
+            document.getElementById('summaryRoom').textContent = roomType || '-';
+            document.getElementById('summaryCheckIn').textContent = checkIn || '-';
+            document.getElementById('summaryCheckOut').textContent = checkOut || '-';
+            document.getElementById('summaryRoomCount').textContent = roomCount || '-';
+            
+            if (checkIn && checkOut) {
+                const days = calculateDaysBetween(checkIn, checkOut);
+                document.getElementById('summaryDuration').textContent = days;
+            }
+        }
+    </script>
+</body>
+</html>

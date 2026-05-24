@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ulasan Tamu - LUMIERE</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    
+    <style>
+        .fixed-top, header, .header {
+            z-index: 9999 !important; /* Angka tinggi menjamin header selalu di lapisan paling depan */
+            background-color: #111113 !important; /* Memberi warna background hitam pekat agar data di bawahnya tidak tembus pandang */
+        }
+
+        .page-content {
+            padding-top: 160px !important; 
+            padding-bottom: 60px;
+            min-height: 90vh;
+        }
+        .page-content {
+            padding-top: 160px !important; /* Membuat konten turun lebih bawah agar aman dari fixed header */
+            padding-bottom: 60px;
+            min-height: 90vh;
+        }
+
+        /* --- Style Custom Card --- */
+        .card-custom-dark {
+            background: rgba(255, 255, 255, 0.03) !important;
+            border: 1px solid rgba(255, 255, 255, 0.1) !important;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .table-custom-dark {
+            background-color: #ffffff !important;
+            border-radius: 10px !important;
+            overflow: hidden !important;
+        }
+        
+        .table-custom-dark thead th {
+            background-color: #1a1a1a !important;
+            color: #d4af37 !important; 
+            border-bottom: 2px solid rgba(255, 255, 255, 0.2) !important;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 0.5px;
+            padding: 15px 10px;
+        }
+
+        .text-muted-light-table {
+            color: #000000 !important; 
+            font-weight: 600;
+        }
+
+        .text-muted-light {
+            color: #b0b0b0 !important; /* Tetap abu-abu untuk sub-judul di luar tabel */
+        }
+
+        /* --- Style Tombol --- */
+        .btn-gold {
+            background-color: #d4af37 !important;
+            color: #000000 !important;
+            font-weight: 600;
+            border: none;
+            transition: all 0.3s ease;
+        }
+        .btn-gold:hover {
+            background-color: #b5942e !important;
+            transform: translateY(-2px);
+        }
+        .btn-outline-gold {
+            border: 1px solid #d4af37 !important;
+            color: #d4af37 !important;
+            background: transparent;
+            transition: all 0.3s ease;
+        }
+        .btn-outline-gold:hover {
+            background-color: #d4af37 !important;
+            color: #000000 !important;
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="navbar navbar-expand-lg fixed-top">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">
+                    <span class="logo-text">LUMIERE</span>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link" href="index.html">Beranda</a></li>
+                        <li class="nav-item"><a class="nav-link" href="rooms.html">Kamar</a></li>
+                        <li class="nav-item"><a class="nav-link active" href="api-demo.html">Ulasan Tamu</a></li>
+                        <li class="nav-item"><a class="nav-link" href="login.html">Login</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <section class="page-content" style="background: linear-gradient(135deg, #16161a 0%, #232329 100%);">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h1 style="color: #d4af37 !important; font-weight: 700; letter-spacing: 1px;">Ulasan & Komentar Tamu</h1>
+                <p class="text-muted-light fs-5">Data feedback pengunjung yang disinkronisasikan secara live menggunakan API Integration</p>
+            </div>
+            
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card card-custom-dark mb-4">
+                        <div class="card-body p-4">
+                            <h5 class="text-white mb-3" style="font-size: 1.1rem; letter-spacing: 0.5px;">Filter Informasi Feedback</h5>
+                            
+                            <div class="d-flex flex-wrap gap-2">
+                                <button class="btn btn-gold" onclick="fetchUsers()">
+                                    <i class="fas fa-users me-2"></i>Lihat Profil Pengulas
+                                </button>
+                                <button class="btn btn-outline-gold" onclick="fetchPosts()">
+                                    <i class="fas fa-comment-dots me-2"></i>Lihat Komentar Terbaru
+                                </button>
+                            </div>
+                            
+                            <div class="id" id="loadingIndicator" style="display: none;" class="text-center my-4">
+                                <div class="spinner-border text-warning" role="status">
+                                    <span class="visually-hidden">Loading...</span>
+                                </div>
+                                <p class="text-warning mt-2 mb-0">Menghubungkan ke API Server...</p>
+                            </div>
+                            
+                            <div id="apiResults" class="mt-3"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="card card-custom-dark">
+                        <div class="card-body p-4">
+                            <div class="table-responsive">
+                                <table class="table table-custom-dark align-middle m-0" id="dataTable">
+                                    <thead id="dataTableHead">
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Nama Tamu</th>
+                                            <th>Email Kontak</th>
+                                            <th>Asal Instansi/Perusahaan</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="dataTableBody">
+                                        <tr style="background-color: #ffffff !important;">
+                                            <td colspan="4" style="text-align: center;" class="text-muted-light-table py-5">
+                                                <i class="fas fa-info-circle me-2"></i> Silakan pilih filter data di atas untuk memuat database ulasan tamu.
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer text-center py-4 border-top" style="background: #111113; border-color: rgba(255,255,255,0.05) !important;">
+        <div class="container">
+            <p class="m-0 text-muted-light" style="font-size: 0.9rem;">&copy; 2026 LUMIERE. Hak Cipta Dilindungi.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        async function fetchUsers() {
+            const loadingIndicator = document.getElementById('loadingIndicator');
+            const dataTableHead = document.getElementById('dataTableHead');
+            const dataTableBody = document.getElementById('dataTableBody');
+            const apiResults = document.getElementById('apiResults');
+            
+            loadingIndicator.style.display = 'block';
+            dataTableBody.innerHTML = '';
+            apiResults.innerHTML = '';
+            
+            dataTableHead.innerHTML = `
+                <tr>
+                    <th style="width: 10%">ID</th>
+                    <th style="width: 30%">Nama Lengkap Tamu</th>
+                    <th style="width: 30%">Email Resmi</th>
+                    <th style="width: 30%">Asal Perusahaan/Instansi</th>
+                </tr>
+            `;
+            
+            try {
+                const response = await axios.get('https://jsonplaceholder.typicode.com/users');
+                const users = response.data;
+                
+                let html = '';
+                users.forEach(user => {
+                    /* DI SINI: Baris dipaksa putih murni, tulisan dipaksa hitam pekat tebal */
+                    html += `
+                        <tr style="background-color: #ffffff !important;">
+                            <td style="color: #000000 !important; background-color: #ffffff !important; font-weight: 700;">#USR-${user.id}</td>
+                            <td style="color: #000000 !important; background-color: #ffffff !important; font-weight: 700;">${user.name}</td>
+                            <td style="color: #000000 !important; background-color: #ffffff !important; font-weight: 700;">${user.email}</td>
+                            <td style="color: #000000 !important; background-color: #ffffff !important; font-weight: 700;">${user.company.name}</td>
+                        </tr>
+                    `;
+                });
+                
+                dataTableBody.innerHTML = html;
+                apiResults.innerHTML = `
+                    <div class="alert m-0 text-white" style="background: rgba(40, 167, 69, 0.15); border: 1px solid #28a745;">
+                        <i class="fas fa-check-circle text-success me-2"></i> Berhasil menarik <strong>${users.length} data profil</strong> langsung dari API Endpoint JSONPlaceholder.
+                    </div>
+                `;
+            } catch (error) {
+                apiResults.innerHTML = `
+                    <div class="alert m-0 text-white" style="background: rgba(220, 53, 69, 0.15); border: 1px solid #dc3545;">
+                        <i class="fas fa-exclamation-triangle text-danger me-2"></i> Gagal memuat data API: ${error.message}
+                    </div>
+                `;
+            } finally {
+                loadingIndicator.style.display = 'none';
+            }
+        }
+        
+        async function fetchPosts() {
+            const loadingIndicator = document.getElementById('loadingIndicator');
+            const dataTableHead = document.getElementById('dataTableHead');
+            const dataTableBody = document.getElementById('dataTableBody');
+            const apiResults = document.getElementById('apiResults');
+            
+            loadingIndicator.style.display = 'block';
+            dataTableBody.innerHTML = '';
+            apiResults.innerHTML = '';
+            
+            dataTableHead.innerHTML = `
+                <tr>
+                    <th style="width: 15%">ID Ulasan</th>
+                    <th style="width: 30%">Judul Feedback</th>
+                    <th style="width: 40%">Isi Review / Komentar Masukan</th>
+                    <th style="width: 15%">Tingkat Status</th>
+                </tr>
+            `;
+            
+            try {
+                const response = await axios.get('https://jsonplaceholder.typicode.com/posts');
+                const posts = response.data;
+                
+                let html = '';
+                posts.slice(0, 10).forEach(post => {
+                    /* DI SINI JUGA: Semua sel teks dipaksa hitam pekat tebal agar kontras di latar putih */
+                    html += `
+                        <tr style="background-color: #ffffff !important;">
+                            <td style="color: #000000 !important; background-color: #ffffff !important; font-weight: 700;">#REV-0${post.id}</td>
+                            <td style="color: #000000 !important; background-color: #ffffff !important; font-weight: 700;">"${post.title.substring(0, 25)}..."</td>
+                            <td style="color: #000000 !important; background-color: #ffffff !important; font-weight: 600; font-style: italic;">"${post.body.substring(0, 65)}..."</td>
+                            <td style="background-color: #ffffff !important;"><span class="badge bg-dark" style="color: #ffffff !important;">VIP Level ${post.userId}</span></td>
+                        </tr>
+                    `;
+                });
+                
+                dataTableBody.innerHTML = html;
+                apiResults.innerHTML = `
+                    <div class="alert m-0 text-white" style="background: rgba(40, 167, 69, 0.15); border: 1px solid #28a745;">
+                        <i class="fas fa-check-circle text-success me-2"></i> Berhasil memfilter data, menampilkan <strong>10 ulasan terbaru</strong> secara real-time.
+                    </div>
+                `;
+            } catch (error) {
+                apiResults.innerHTML = `
+                    <div class="alert m-0 text-white" style="background: rgba(220, 53, 69, 0.15); border: 1px solid #dc3545;">
+                        <i class="fas fa-exclamation-triangle text-danger me-2"></i> Gagal memuat data API: ${error.message}
+                    </div>
+                `;
+            } finally {
+                loadingIndicator.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>

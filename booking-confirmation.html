@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Konfirmasi Booking - LUMIERE</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">
+                    <span class="logo-text">LUMIERE</span>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Beranda</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="rooms.html">Kamar</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="suites.html">Suite</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="login.html">Login</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Booking Confirmation Section -->
+    <section class="page-content" style="background: linear-gradient(135deg, var(--ebony) 0%, var(--deep-taupe) 100%);">
+        <div class="container">
+            <div class="page-header">
+                <h1>Konfirmasi Booking</h1>
+                <p>Review dan konfirmasi reservasi Anda</p>
+            </div>
+            
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <h5 class="card-title mb-4">Detail Booking</h5>
+                            
+                            <div class="row mb-4">
+                                <div class="col-md-6">
+                                    <p class="card-text mb-2"><strong>ID Booking:</strong> #BK20240524001</p>
+                                    <p class="card-text mb-2"><strong>Tipe Kamar:</strong> Deluxe Room</p>
+                                    <p class="card-text mb-2"><strong>Jumlah Kamar:</strong> 1</p>
+                                    <p class="card-text mb-2"><strong>Check In:</strong> 25 Mei 2024</p>
+                                    <p class="card-text mb-2"><strong>Check Out:</strong> 27 Mei 2024</p>
+                                </div>
+                                <div class="col-md-6">
+                                    <p class="card-text mb-2"><strong>Nama Tamu:</strong> User Demo</p>
+                                    <p class="card-text mb-2"><strong>Email:</strong> user@lumiere.com</p>
+                                    <p class="card-text mb-2"><strong>Telepon:</strong> +62 812 3456 7890</p>
+                                    <p class="card-text mb-2"><strong>Jumlah Tamu:</strong> 2 Orang</p>
+                                    <p class="card-text mb-2"><strong>Breakfast:</strong> Include</p>
+                                </div>
+                            </div>
+                            
+                            <hr style="border-color: var(--deep-taupe); margin: 20px 0;">
+                            
+                            <div class="mb-4">
+                                <h6 class="mb-3" style="color: var(--light-taupe-beige);">Rincian Harga</h6>
+                                <div class="d-flex justify-content-between mb-2">
+                                    <span style="color: var(--silver-grey);">Harga per malam (2 malam)</span>
+                                    <span style="color: var(--silver-grey);">Rp1.500.000</span>
+                                </div>
+                                <div class="d-flex justify-content-between mb-2">
+                                    <span style="color: var(--silver-grey);">Breakfast (2 hari)</span>
+                                    <span style="color: var(--silver-grey);">Rp200.000</span>
+                                </div>
+                                <div class="d-flex justify-content-between mb-2">
+                                    <span style="color: var(--silver-grey);">Pajak & Service (10%)</span>
+                                    <span style="color: var(--silver-grey);">Rp170.000</span>
+                                </div>
+                                <hr style="border-color: var(--deep-taupe); margin: 10px 0;">
+                                <div class="d-flex justify-content-between">
+                                    <strong style="color: var(--light-taupe-beige);">Total</strong>
+                                    <strong class="price-display">Rp1.870.000</strong>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title mb-3">Kebijakan Pembatalan</h5>
+                            <ul style="color: var(--silver-grey); padding-left: 20px;">
+                                <li>Pembatalan gratis hingga 24 jam sebelum check-in</li>
+                                <li>Pembatalan kurang dari 24 jam akan dikenakan biaya 1 malam</li>
+                                <li>No-show akan dikenakan biaya penuh</li>
+                                <li>Perubahan tanggal tergantung ketersediaan kamar</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4">
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <h5 class="card-title mb-3">Status Booking</h5>
+                            <div class="text-center mb-4">
+                                <span class="badge badge-warning" style="font-size: 18px; padding: 10px 20px;">Pending Payment</span>
+                            </div>
+                            <p style="color: var(--silver-grey); text-align: center;">
+                                Silakan selesaikan pembayaran dalam 24 jam untuk mengkonfirmasi booking Anda.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <h5 class="card-title mb-3">Metode Pembayaran</h5>
+                            <div class="d-grid gap-2">
+                                <button class="btn btn-outline-gold text-start">
+                                    <i class="fas fa-university me-2"></i> Transfer Bank
+                                </button>
+                                <button class="btn btn-outline-gold text-start">
+                                    <i class="fas fa-credit-card me-2"></i> Kartu Kredit/Debit
+                                </button>
+                                <button class="btn btn-outline-gold text-start">
+                                    <i class="fas fa-wallet me-2"></i> E-Wallet
+                                </button>
+                                <button class="btn btn-outline-gold text-start">
+                                    <i class="fas fa-qrcode me-2"></i> QRIS
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="d-grid gap-2">
+                                <a href="payment-detail.html" class="btn btn-gold">Lanjut ke Pembayaran</a>
+                                <a href="booking-form.html" class="btn btn-outline-gold">Edit Booking</a>
+                                <a href="rooms.html" class="btn btn-outline-gold" style="border-color: #dc3545; color: #dc3545;">Batalkan Booking</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+        <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <h4 class="footer-title">LUMIERE</h4>
+                    <p class="footer-text">Hotel & Resor Mewah</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2">
+                    <h5 class="footer-heading">Tautan Cepat</h5>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Beranda</a></li>
+                        <li><a href="rooms.html">Kamar</a></li>
+                        <li><a href="suites.html">Suite</a></li>
+                        <li><a href="restaurant.html">Restoran</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2">
+                    <h5 class="footer-heading">Halaman</h5>
+                    <ul class="footer-links">
+                        <li><a href="about.html">Tentang Kami</a></li>
+                        <li><a href="contact.html">Kontak</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="terms.html">Syarat & Ketentuan</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2">
+                    <h5 class="footer-heading">Akun</h5>
+                    <ul class="footer-links">
+                        <li><a href="login.html">Login</a></li>
+                        <li><a href="register.html">Daftar</a></li>
+                        <li><a href="privacy.html">Privasi</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2">
+                    <h5 class="footer-heading">Kontak</h5>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-phone"></i> +62 21 1234 5678</li>
+                        <li><i class="fas fa-envelope"></i> info@lumiere.com</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Jakarta, Indonesia</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 LUMIERE. Hak Cipta Dilindungi.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

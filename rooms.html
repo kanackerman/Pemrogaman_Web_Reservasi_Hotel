@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List Kamar - LUMIERE</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">
+                    <span class="logo-text">LUMIERE</span>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Beranda</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="rooms.html">Kamar</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="suites.html">Suite</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="restaurant.html">Restoran</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="ballroom.html">Ballroom</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="login.html">Login</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Rooms Section -->
+    <section class="page-content" style="background: linear-gradient(135deg, var(--ebony) 0%, var(--deep-taupe) 100%);">
+        <div class="container">
+            <div class="page-header">
+                <h1>List Kamar</h1>
+                <p>Pilih kamar yang sesuai dengan kebutuhan Anda</p>
+            </div>
+            
+            <!-- Filter Section -->
+            <div class="card mb-5">
+                <div class="card-body">
+                    <h5 class="card-title mb-4">Filter Kamar</h5>
+                    <div class="row g-3">
+                        <div class="col-md-3">
+                            <label class="form-label">Tipe Kamar</label>
+                            <select class="form-select" id="roomType">
+                                <option value="">Semua Tipe</option>
+                                <option value="deluxe">Deluxe Room</option>
+                                <option value="business">Business Suite</option>
+                                <option value="grand-deluxe">Grand Deluxe</option>
+                                <option value="family">Family Suite</option>
+                                <option value="executive">Executive Suite</option>
+                            </select>
+                        </div>
+                        <div class="col-md-3">
+                            <label class="form-label">Kapasitas</label>
+                            <select class="form-select" id="capacity">
+                                <option value="">Semua Kapasitas</option>
+                                <option value="2">2 Orang</option>
+                                <option value="4">4 Orang</option>
+                                <option value="6">6 Orang</option>
+                            </select>
+                        </div>
+                        <div class="col-md-3">
+                            <label class="form-label">Harga Maksimal</label>
+                            <select class="form-select" id="maxPrice">
+                                <option value="">Semua Harga</option>
+                                <option value="1000000">Rp 1.000.000</option>
+                                <option value="2000000">Rp 2.000.000</option>
+                                <option value="3000000">Rp 3.000.000</option>
+                                <option value="5000000">Rp 5.000.000+</option>
+                            </select>
+                        </div>
+                        <div class="col-md-3">
+                            <label class="form-label">&nbsp;</label>
+                            <button type="button" class="btn btn-gold w-100" onclick="applyFilter()">Terapkan Filter</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Search Section -->
+            <div class="card mb-5">
+                <div class="card-body">
+                    <div class="row g-3">
+                        <div class="col-md-10">
+                            <input type="text" class="form-control" id="searchInput" placeholder="Cari kamar berdasarkan nama, fasilitas, atau deskripsi...">
+                        </div>
+                        <div class="col-md-2">
+                            <button type="button" class="btn btn-gold w-100" onclick="searchRooms()">
+                                <i class="fas fa-search me-2"></i>Search
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Rooms Grid -->
+            <div class="grid-2" id="roomsGrid">
+                <!-- Deluxe Room -->
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1618773928121-c32242e63f39?w=600" alt="Deluxe Room" class="card-img-top" style="height: 250px; object-fit: cover;">
+                    <div class="card-body">
+                        <h5 class="card-title">Deluxe Room</h5>
+                        <p class="card-text">Kamar standar yang nyaman dan fungsional</p>
+                        <div class="mb-3">
+                            <span class="badge badge-info me-2">2 Orang</span>
+                            <span class="badge badge-success">30 Unit</span>
+                        </div>
+                        <div class="mb-3">
+                            <p class="card-text mb-1">
+                                <strong>Weekday:</strong> Rp650.000
+                            </p>
+                            <p class="card-text mb-1">
+                                <strong>Weekend:</strong> Rp750.000
+                            </p>
+                        </div>
+                        <div class="d-flex gap-2">
+                            <a href="room-detail-deluxe.html" class="btn btn-outline-gold flex-grow-1">Detail</a>
+                            <a href="booking-form.html?room=deluxe" class="btn btn-gold flex-grow-1">Booking</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Business Suite -->
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1590490360182-c33d57733427?w=600" alt="Business Suite" class="card-img-top" style="height: 250px; object-fit: cover;">
+                    <div class="card-body">
+                        <h5 class="card-title">Business Suite</h5>
+                        <p class="card-text">Dirancang untuk kebutuhan bisnis dan perjalanan dinas</p>
+                        <div class="mb-3">
+                            <span class="badge badge-info me-2">2 Orang</span>
+                            <span class="badge badge-success">45 Unit</span>
+                        </div>
+                        <div class="mb-3">
+                            <p class="card-text mb-1">
+                                <strong>Weekday:</strong> Rp950.000
+                            </p>
+                            <p class="card-text mb-1">
+                                <strong>Weekend:</strong> Rp1.050.000
+                            </p>
+                        </div>
+                        <div class="d-flex gap-2">
+                            <a href="room-detail-business.html" class="btn btn-outline-gold flex-grow-1">Detail</a>
+                            <a href="booking-form.html?room=business" class="btn btn-gold flex-grow-1">Booking</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Grand Deluxe Room -->
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1582719508461-905c673771fd?w=600" alt="Grand Deluxe Room" class="card-img-top" style="height: 250px; object-fit: cover;">
+                    <div class="card-body">
+                        <h5 class="card-title">Grand Deluxe Room</h5>
+                        <p class="card-text">Kamar lebih luas untuk relaksasi dan staycation</p>
+                        <div class="mb-3">
+                            <span class="badge badge-info me-2">2 Orang</span>
+                            <span class="badge badge-success">38 Unit</span>
+                        </div>
+                        <div class="mb-3">
+                            <p class="card-text mb-1">
+                                <strong>Weekday:</strong> Rp1.150.000
+                            </p>
+                            <p class="card-text mb-1">
+                                <strong>Weekend:</strong> Rp1.300.000
+                            </p>
+                        </div>
+                        <div class="d-flex gap-2">
+                            <a href="room-detail-grand.html" class="btn btn-outline-gold flex-grow-1">Detail</a>
+                            <a href="booking-form.html?room=grand-deluxe" class="btn btn-gold flex-grow-1">Booking</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Family Suite -->
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1566665797739-1674de7a421a?w=600" alt="Family Suite" class="card-img-top" style="height: 250px; object-fit: cover;">
+                    <div class="card-body">
+                        <h5 class="card-title">Family Suite</h5>
+                        <p class="card-text">Cocok untuk keluarga dan grup kecil</p>
+                        <div class="mb-3">
+                            <span class="badge badge-info me-2">4-6 Orang</span>
+                            <span class="badge badge-success">30 Unit</span>
+                        </div>
+                        <div class="mb-3">
+                            <p class="card-text mb-1">
+                                <strong>Weekday:</strong> Rp1.850.000
+                            </p>
+                            <p class="card-text mb-1">
+                                <strong>Weekend:</strong> Rp2.050.000
+                            </p>
+                        </div>
+                        <div class="d-flex gap-2">
+                            <a href="room-detail-family.html" class="btn btn-outline-gold flex-grow-1">Detail</a>
+                            <a href="booking-form.html?room=family" class="btn btn-gold flex-grow-1">Booking</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Executive Suite -->
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=600" alt="Executive Suite" class="card-img-top" style="height: 250px; object-fit: cover;">
+                    <div class="card-body">
+                        <h5 class="card-title">Executive Suite</h5>
+                        <p class="card-text">Kamar premium dengan fasilitas eksklusif</p>
+                        <div class="mb-3">
+                            <span class="badge badge-info me-2">2-4 Orang</span>
+                            <span class="badge badge-success">7 Unit</span>
+                        </div>
+                        <div class="mb-3">
+                            <p class="card-text mb-1">
+                                <strong>Weekday:</strong> Rp3.500.000
+                            </p>
+                            <p class="card-text mb-1">
+                                <strong>Weekend:</strong> Rp3.900.000
+                            </p>
+                        </div>
+                        <div class="d-flex gap-2">
+                            <a href="room-detail-executive.html" class="btn btn-outline-gold flex-grow-1">Detail</a>
+                            <a href="booking-form.html?room=executive" class="btn btn-gold flex-grow-1">Booking</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+        <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <h4 class="footer-title">LUMIERE</h4>
+                    <p class="footer-text">Hotel & Resor Mewah</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2">
+                    <h5 class="footer-heading">Tautan Cepat</h5>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Beranda</a></li>
+                        <li><a href="rooms.html">Kamar</a></li>
+                        <li><a href="suites.html">Suite</a></li>
+                        <li><a href="restaurant.html">Restoran</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2">
+                    <h5 class="footer-heading">Halaman</h5>
+                    <ul class="footer-links">
+                        <li><a href="about.html">Tentang Kami</a></li>
+                        <li><a href="contact.html">Kontak</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="terms.html">Syarat & Ketentuan</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2">
+                    <h5 class="footer-heading">Akun</h5>
+                    <ul class="footer-links">
+                        <li><a href="login.html">Login</a></li>
+                        <li><a href="register.html">Daftar</a></li>
+                        <li><a href="privacy.html">Privasi</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2">
+                    <h5 class="footer-heading">Kontak</h5>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-phone"></i> +62 21 1234 5678</li>
+                        <li><i class="fas fa-envelope"></i> info@lumiere.com</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Jakarta, Indonesia</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 LUMIERE. Hak Cipta Dilindungi.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        function applyFilter() {
+            const roomType = document.getElementById('roomType').value;
+            const capacity = document.getElementById('capacity').value;
+            const maxPrice = document.getElementById('maxPrice').value;
+            
+            const filters = { type: roomType, capacity, maxPrice };
+            const filteredRooms = filterRooms(filters);
+            
+            // Update grid with filtered rooms
+            console.log('Filtered rooms:', filteredRooms);
+        }
+        
+        function searchRooms() {
+            const query = document.getElementById('searchInput').value;
+            const results = searchRooms(query);
+            console.log('Search results:', results);
+        }
+    </script>
+</body>
+</html>
